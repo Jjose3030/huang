@@ -6,6 +6,7 @@
   --bg-dark: rgb(28, 34, 38); 
   --bg-darker: rgb(20, 24, 27); 
   --border-light: rgb(47, 54, 66);
+  --fade: rgba(6, 6, 6, 0.363);
   --trans: .4s ease;
 }
 
@@ -16,10 +17,11 @@
 }
 body {
     background-color: var(--main-bg);
+    position: relative;
 }
 header {
     background-color: var(--bg-darker);
-    z-index: 333;
+    z-index: 9999333;
     border-bottom: 2px solid var(--text-light);
     position: sticky;
     top: 0;
@@ -30,21 +32,22 @@ nav{
     align-items: center;
     padding-inline: 20px;
     gap: 10px;
+    position: relative;
 }
 .logo, ul , .cons {
     width: 50%;
 }
-ul {
+nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
     justify-content: space-between;
     align-items: center;
 }
-ul li {
+nav ul li {
     display: inline-block;
 }
-ul li a{
+nav ul li a{
     text-decoration: none;
     font-size: 18px;
     font-weight: 600;
@@ -52,10 +55,10 @@ ul li a{
     color: var(--text-light);
     position: relative;
 }
-ul li a:visited {
+ nav ul li a:visited {
     color: var(--text-light);
 }
-ul li a::before {
+nav ul li a::before {
     content: '';
     position: absolute;
     width: 0%;
@@ -65,9 +68,69 @@ ul li a::before {
     transition: var(--trans);
     background-color: var(--text-light);
 }
-ul li a:hover::before {
+nav ul li a:hover::before {
     width: 100%;
 }
+
+.mobile-nav {
+    display: none;
+    position: absolute;
+    top: 60.35px;
+    width: 100%;
+    left: 0;
+    background-color: var(--text-light);
+    z-index: 77777;
+    padding: 15px;
+}
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 20px;
+    width: 100%;
+}
+.mobile-menu ul li {
+    font-size: 20px;
+    background-color: var(--bg-dark);
+    transition: var(--trans);
+}
+.mobile-menu ul li:hover {
+    background-color: var(--bg-darker);
+}
+.mobile-menu ul li a {
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    text-align: center;
+    padding: 15px;
+    color: var(--text-light);
+    width: 100%;
+}
+.mobile-menu ul li a:visited {
+    color: var(--text-light);
+}
+.book1 {
+    background-color: var(--border-light);
+    margin-top: 20px;
+    color: var(--text-muted);
+    padding: 16px;
+    font-size: 25px;
+    font-weight: 600;
+    border: none;
+    transition: var(--trans);
+    cursor: pointer;
+}
+.book1:hover {
+    background-color: var(--main-bg);
+    color: var(--text-light);
+}
+
+
 .cons {
     display: flex;
     justify-content: end;
@@ -89,6 +152,17 @@ ul li a:hover::before {
 }
 div.harm {
     display: none;
+}
+.harm p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.harm p i {
+    cursor: pointer;
+    font-size: 30px;
+    color: var(--text-light);
 }
 .hero {
     height: calc(100vh - 74.45px);
@@ -189,6 +263,103 @@ div.harm {
 .but2:hover::after {
     width: 100%;
 }
+
+.consult-cont {
+    background-color: var(--fade);
+    position: absolute;
+    z-index: 30000;
+    width: 100%;
+    min-height: calc(100vh - 60.35px);
+    top: 63px;
+    display: none;
+}
+.consu {
+    width: 100%;
+    min-height: calc(100vh - 60.35px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.consult {
+    background-color: var(--main-bg);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.consult > h2 {
+    font-size: 20px;
+    text-align: center;
+    color: var(--text-light);
+}
+.consult > p {
+    text-align: center;
+    font-size: 15px;
+    color: var(--text-light);
+}
+.consult form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.con-name, .con-email, .con-phone, .con-date, .con-intrest, .con-message {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.con-name input, .con-email input, .con-phone input, .con-date input, .con-intrest select {
+    display: block;
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+    color: var(--bg-darker);
+    outline: none;
+}
+.con-message textarea {
+    height: 60px;
+    overflow-y: auto;
+    padding: 5px;
+    border: none;
+    outline: none;
+    resize: none;
+    border-radius: 2px;
+    font-size: 15px;
+}
+.consult label {
+    font-weight: 600;
+    color: var(--text-light);
+}
+.consult input::placeholder, .con-message textarea::placeholder {
+    color: var(--bg-darker);
+}
+.con-book {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    transition: var(--trans);
+    background-color: var(--bg-darker);
+    cursor: pointer;
+    color: var(--text-light);
+}
+.con-book:hover {
+    background-color: var(--bg-dark);
+}
+
+
+
+
+
+
+
+
+
+
 .sect1, .sect2 {
     margin-inline: 15px;
     margin-top: 30px;
@@ -476,6 +647,7 @@ div.harm {
     font-size: 25px;
     color: var(--text-light);
     margin-block: 15px;
+    text-align: center;
 }
 .but5 {
     padding: 10px 20px;
@@ -493,7 +665,6 @@ div.harm {
     
 }
 .sect7 {
-    margin-top: 2rem;
     background-color: var(--border-light);
     padding: 20px;
 }
@@ -824,4 +995,451 @@ p.rating {
 }
 .f-but:hover {
     background-color: var(--border-light);
+}
+footer {
+    margin-top: 50px;
+    background-color: var(--text-muted);
+    padding: 20px;
+}
+.foot-links {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-block: 10px;
+}
+.off > p {
+    font-size: 15px;
+    margin-top: 4px;
+}
+.p-cont {
+    margin-top: 8px;
+}
+.p-cont p {
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-block;
+}
+.p-cont p a{
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    color: var(--bg-darker);
+}
+.p-cont p a:visited {
+    color: var(--bg-darker);
+}
+.foot-links-grp h2 {
+    margin-bottom: 4px;
+}
+.foot-links-grp p {
+    font-size: 17px;
+    display: block;
+    margin-block: 6px;
+}
+.foot-links-grp p a {
+    display: block;
+    text-decoration: none;
+    color: var(--bg-darker);
+    position: relative;
+    transition: var(--trans);
+    width: max-content;
+}
+.foot-links-grp p a:visited {
+    color: var(--bg-darker);
+}
+.foot-links-grp p a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1.5px;
+    border-radius: 40px;
+    background-color: var(--bg-darker);
+    left: 0;
+    bottom: -2.5px;
+    transition: var(--trans);
+}
+.foot-links-grp p a:hover::after {
+    width: 100%;
+}
+.foot-news {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    text-align: center;
+}
+.p-det {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.p-det p a, .p-det p {
+    font-size: 17px;
+}
+.subs {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.subs form{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.subs input {
+    padding: 8px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    width: 350px;
+    color: var(--bg-darker);
+    font-size: 16px;
+}
+.subs input::placeholder {
+    color: var(--bg-darker);
+}
+.but9 {
+    padding: 8.5px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    transition: var(--trans);
+    cursor: pointer;
+}
+.but9:hover {
+    background-color: var(--bg-darker);
+}
+.socials {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+/* touch the social s part */
+.socials p {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.socials p a {
+    display: flex;
+    text-decoration: none;
+    color: var(--bg-dark);
+}
+.socials p a:visited {
+    color: var(--bg-dark);
+}
+.socials p i {
+    font-size: 35px;
+}
+.foot-pri {
+
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+.foot-pri p:first-child {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--bg-darker);
+}
+
+
+
+@media(max-width: 1040px) {
+    .house-card-cont {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 350px;
+}
+.stat-info p {
+    font-size: 17px;
+}
+.team {
+    grid-template-columns: repeat(8, 300px);
+    overflow-x: auto;
+}
+.contact-info2 form {
+    width: 75%;
+}
+.contact-info2 form fieldset h2 {
+    margin: 5px 30px;
+}
+}
+
+@media (max-width: 950px) {
+    nav > ul, .but1 {
+        display: none;
+    }
+    div.harm {
+        display: block;
+    }
+    .hero, .sect6 {
+        height: 700px;
+    }
+    .welc h1 {
+    font-size: 2.7rem;
+    width: 75%;
+}
+.prop-spot-cont {
+    grid-auto-rows: 320px;
+}
+.prop-spot-details h3 {
+    color: var(--text-light);
+    font-size: 1.2rem;
+}
+.prop-spot-details p {
+    font-size: 15px;
+}
+.but4 {
+    font-size: 15px;
+}
+.foot-links {
+    grid-template-columns: repeat(3, 1fr);
+}
+}
+
+@media (max-width: 840px) {
+    .choose {
+    gap: 10px;
+}
+.choose-details > h2, .banner-details1 h2, .blog-info2 > h2 {
+    font-size: 1.5rem;
+}
+.stats-cont {
+    grid-template-columns: repeat(4, 220px);
+    overflow-x: auto;
+}
+.stats-item2 {
+    padding: 10px !important;
+}
+.banner {
+    gap: 10px;
+}
+.banner-details2, .choose-img {
+    height: 400px;
+}
+.blog-sect-det p {
+    font-size: 17px;
+}
+.blog {
+    flex-direction: column-reverse;
+}
+.blog-info {
+    width: 100%;
+}
+.contact-info2 form {
+    width: 100%;
+}
+.sect10 {
+    padding: 10px;
+}
+}
+
+@media (max-width: 770px) {
+    .choose {
+    flex-direction: column-reverse;
+}
+.choose-img, .choose-details {
+    width: 100%;
+}
+.prop-spot-cont {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 350px;
+    gap: 15px;
+}
+.banner {
+    flex-direction: column;
+    gap: 20px;
+}
+.banner-details {
+    width: 100%;
+}
+.interior-details h2 {
+    font-size: 3rem;
+    text-align: center;
+}
+}
+
+@media (max-width: 670px) {
+    .contact {
+    flex-direction: column;
+}
+.contact-info {
+    width: 100%;
+}
+.welc h1 {
+    font-size: 2.5rem;
+    width: 90%;
+    text-align: center;
+}
+.welc p {
+    width: 80%;
+    font-size: 25px;
+}
+.welc {
+    gap: 20px;
+}
+.house-card-cont {
+    grid-auto-rows: 300px;
+}
+    .sect5 > p {
+    width: 100%;
+}
+}
+
+@media (max-width: 580px) {
+    .foot-links {
+    grid-template-columns: repeat(2, 1fr);
+}
+ .hero, .sect6 {
+        height: 600px;
+    }
+    .subs form{
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.subs input {
+    width: 100%;   
+}
+.phone-cont {
+    grid-column: span 2;
+}
+.consult {
+    width: 95%;
+}
+.welc p span {
+    display: none;
+}
+}
+
+@media (max-width: 455px) {
+    .welc h1 {
+    font-size: 2.1rem;
+}
+.welc p {
+    width: 95%;
+    font-size: 25px;
+}
+    .search-section {
+    gap: 8px;
+    flex-direction: column;
+    width: 90%;
+}   
+.but2, .but21 {
+    width: 100%;
+    padding: 15px 0;
+}
+.but21 {
+    border-radius: 20px 20px 0px 0px ;
+}
+.but2 {
+    border-radius: 0 0 20px 20px;
+}
+   .house-card-cont {
+    grid-template-columns: repeat(4, 300px);
+    overflow-x: auto;
+}
+.prop-spot-cont {
+    grid-template-columns: repeat(6, 300px);
+    overflow-x: auto;
+}
+.sect8 > p {
+    width: 100%;
+}
+.sect9 {
+    padding: 25px 15px;
+}
+footer {
+    padding: 14px;
+}
+.foot-links {
+    gap: 10px;
+}
+.foot-links-grp p {
+    font-size: 15px;
+}
+.sect3 > h2, .sect4 > h2, .sect5 > h2, .sect8 > h2, .contact-info1 h2 {
+    font-size: 1.7rem;
+}
+.interior-details p {
+    font-size: 20px;
+}
+.banner-details1 {
+    padding: 0;
+}
+.team {
+    padding-inline: 0;
+}
+.contact-info1 {
+    padding: 0px;
+}
+
+}
+
+@media (max-width: 397px) {
+    .welc {
+    gap: 15px;
+}
+    .welc h1 {
+    font-size: 1.7rem;
+}
+.welc p {
+    font-size: 18px;
+}
+.search-section {
+    gap: 10px;
+}  
+.blog-sect-cont {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 180px;
+    gap: 10px;
+}
+.foot-links {
+    gap: 10px;
+}
+.contact-info2 form fieldset h2 {
+    margin: 5px 0px;
+}
+
+}
+
+@media (max-width: 365px) {
+
+    .sect1 > h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 330px) {
+       .house-card-cont {
+    grid-template-columns: repeat(4, 270px);
+    grid-template-rows: 320px;
+}
+.prop-spot-cont {
+    grid-template-columns: repeat(6, 270px);
+}
+.team {
+    grid-template-columns: repeat(8, 285px);
+}
+.banner-details2, .choose-img {
+    height: 370px;
+}
 }

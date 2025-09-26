@@ -23,17 +23,69 @@
             <div class="cons">
                 <button class="but1">Book a Consultation</button>
             </div>
-            <div class="harm"><p><i class="fa-solid fa-bars-staggered"></i></p></div>
+            <div class="harm"><p><i class="fa-solid fa-bars-staggered" id="menu-icon"></i></p></div>
         </nav>
     </header>
+    <div class="mobile-nav" id="nav">
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Properties</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <button class="book1">Book a Consulation</button>
+        </div>
+    </div>
     <div class="hero">
         <video src="images/bac1.mp4" loop muted autoplay></video>
         <div class="welc">
             <h1>Find Your Dream Home with Huang Real Estate</h1>
-            <p>From luxury apartments to family-friendly neighborhoods, we connect you with the perfect property- wherever life takes you.</p>
+            <p><span>From luxury apartments to family-friendly neighborhoods,</span> we connect you with the perfect property- wherever life takes you.</p>
             <div class="search-section">
                 <button class="but21">Browse Listing</button>
                 <button class="but2">Schedule a Viewing</button>
+            </div>
+        </div>
+    </div>
+    <div class="consult-cont">
+        <div class="consu">
+            <div class="consult">
+            <h2>Book a Free Consulation</h2>
+            <p>Fill out the form below and we'll reach out to you within 24 hours.</p>
+            <form action="">
+                <div class="con-name">
+                    <label for="fname">Full Name</label>
+                    <input type="text" name="fname" id="" placeholder="Enter your full name" required autofocus autocomplete="yes">
+                </div>
+                <div class="con-email">
+                    <label for="email">Email Address</label>
+                    <input type="email" name="email" id="" placeholder="you@example.com" required autocomplete="yes">
+                </div>
+                <div class="con-phone">
+                    <label for="phone">Phone number</label>
+                    <input type="number" name="number" id="" placeholder="+234 801 234 5678" required autocomplete="yes">
+                </div>
+                <div class="con-date">
+                    <label for="date">Preffered Date</label>
+                    <input type="date" name="date" id="" min="2025/01/01" required>
+                </div>
+                <div class="con-intrest">
+                    <label for="intrest">Region of Intrest</label>
+                    <select name="rg-list" id="reg-list">
+                        <option selected disabled>select Region</option>
+                        <option>Nigeria</option>
+                        <option>Canada</option>
+                        <option>Dubai</option>
+                        <option>Germany</option>
+                    </select>
+                </div>
+                <div class="con-message">
+                    <label for="message">Message (optional)</label>
+                    <textarea name="message" id="" placeholder="Any specific request..."></textarea>
+                </div>
+                <button class="con-book">Book Consultation</button>
+            </form>
             </div>
         </div>
     </div>
@@ -481,9 +533,9 @@
         <div class="foot-links">
             <div class="phone-cont">
                 <div class="off">
-                    <h3>Office Address</h3>
+                    <h2>Office Address</h2>
                     <p><i>Huang Real Estate Headquarters</i></p>
-                    <p>123 Skyline Avenue, New York, NY 10001, USA</p>
+                    <p><i>123 Skyline Avenue, New York, NY 10001, USA</i></p>
                 </div>
                 <div class="p-cont">
                     <div class="p-det">
@@ -547,5 +599,21 @@
             <p><i>All property prices and availability subject to change without notice. Images are for illustration purposes only</i></p>
         </div>
     </footer>
+    <script>
+      const icon = document.getElementById("menu-icon");
+      const nav = document.getElementById("nav");
+
+      icon.addEventListener("click", () => {
+        if (icon.classList.contains("fa-bars-staggered")) {
+          icon.classList.remove("fa-bars-staggered");
+          icon.classList.add("fa-xmark");
+          nav.style.display = "flex";
+        } else {
+          icon.classList.remove("fa-xmark");
+          icon.classList.add("fa-bars-staggered");
+          nav.style.display = "none";
+        }
+      });
+    </script>
 </body>
 </html>
